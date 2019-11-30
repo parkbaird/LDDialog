@@ -1,0 +1,2 @@
+include ':app', ':lddialog'
+rootProject.name='LDDialog'
