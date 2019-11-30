@@ -5,7 +5,7 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+// https://juejin.im/entry/5bac5016f265da0ae92a76ec
 public class MainActivity extends AppCompatActivity {
 
     @Override
