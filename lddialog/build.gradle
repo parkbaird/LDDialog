@@ -1,5 +1,7 @@
 apply plugin: 'com.android.library'
-apply plugin: 'com.novoda.bintray-release'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.parkbaird'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
@@ -18,13 +20,4 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'androidx.test.ext:junit:1.1.1'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
-}
-
-publish {
-    userOrg = USER_ORG
-    groupId = GROUP_ID
-    artifactId = 'lddialog'
-    publishVersion = PUBLISH_VERSION
-    desc = DESC
-    website = WEBSITE
 }
