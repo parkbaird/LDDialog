@@ -156,12 +156,7 @@ public abstract class LDBaseDialog extends DialogFragment {
     public static int getScreenHeight(Activity activity) {
         Display display = activity.getWindowManager().getDefaultDisplay();
         if (display != null) {
-            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN_MR1) {
-                //api 大于17才有
-                display.getRealSize(point);
-            } else {
-                display.getSize(point);
-            }
+            display.getRealSize(point);
 
             //需要减去statusBar的高度  不用考虑navigationBar Display已经自动减去了
             return point.y - getStatusBarHeight(activity);

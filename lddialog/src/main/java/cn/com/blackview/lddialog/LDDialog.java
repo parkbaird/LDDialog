@@ -6,7 +6,7 @@ import android.app.Fragment;
 import android.app.FragmentManager;
 import android.app.FragmentTransaction;
 import android.content.Context;
-import android.os.Build;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -333,8 +333,8 @@ public class LDDialog extends LDBaseDialog implements IDialog {
          * @param onclickListener IDialog.OnClickListener
          * @return Builder
          */
-        public Builder setPositiveButton(IDialog.OnClickListener onclickListener) {
-            return setPositiveButton("确定", onclickListener);
+        public Builder setRightButton(IDialog.OnClickListener onclickListener) {
+            return setRightButton("确定", onclickListener);
         }
 
         /**
@@ -343,7 +343,7 @@ public class LDDialog extends LDBaseDialog implements IDialog {
          * @param onclickListener IDialog.OnClickListener
          * @return Builder
          */
-        public Builder setPositiveButton(String btnStr, IDialog.OnClickListener onclickListener) {
+        public Builder setRightButton(String btnStr, IDialog.OnClickListener onclickListener) {
             params.positiveBtnListener = onclickListener;
             params.positiveStr = btnStr;
             params.showBtnRight = true;
@@ -356,8 +356,8 @@ public class LDDialog extends LDBaseDialog implements IDialog {
          * @param onclickListener IDialog.OnClickListener
          * @return Builder
          */
-        public Builder setNegativeButton(IDialog.OnClickListener onclickListener) {
-            return setNegativeButton("取消", onclickListener);
+        public Builder setLeftButton(IDialog.OnClickListener onclickListener) {
+            return setLeftButton("取消", onclickListener);
         }
 
         /**
@@ -367,7 +367,7 @@ public class LDDialog extends LDBaseDialog implements IDialog {
          * @param onclickListener IDialog.OnClickListener
          * @return Builder
          */
-        public Builder setNegativeButton(String btnStr, IDialog.OnClickListener onclickListener) {
+        public Builder setLeftButton(String btnStr, IDialog.OnClickListener onclickListener) {
             params.negativeBtnListener = onclickListener;
             params.negativeStr = btnStr;
             params.showBtnLeft = true;
@@ -420,9 +420,7 @@ public class LDDialog extends LDBaseDialog implements IDialog {
             if (params.context instanceof Activity) {
                 Activity activity = (Activity) params.context;
                 //如果Activity正在关闭或者已经销毁 直接返回
-                boolean isRefuse = Build.VERSION.SDK_INT >= 17
-                        ? activity.isFinishing() || activity.isDestroyed()
-                        : activity.isFinishing();
+                boolean isRefuse = activity.isFinishing() || activity.isDestroyed();
 
                 if (isRefuse) return dialog;
             }
@@ -436,11 +434,13 @@ public class LDDialog extends LDBaseDialog implements IDialog {
          */
         private void setDefaultOption() {
             params.cancelable = false;
-            params.isCancelableOutside = false;
             params.gravity = Gravity.CENTER;
             params.layoutRes = R.layout.lib_ui_layout_dialog_default;
             params.dimAmount = 0.5f;
-            params.dialogWidth = (int) (getScreenWidth((Activity) params.context) * 0.85f);
+            if (!params.showBtnRight && !params.showBtnLeft) params.isCancelableOutside = true;
+            if (params.dialogWidth == 0) // 适配横竖屏 Configuration.ORIENTATION_PORTRAIT true 竖屏 false 横屏
+                params.dialogWidth = (int) (getScreenWidth((Activity) params.context) *
+                        params.context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_PORTRAIT ? 0.75f : 0.4f);
             params.dialogHeight = WindowManager.LayoutParams.WRAP_CONTENT;
         }
 

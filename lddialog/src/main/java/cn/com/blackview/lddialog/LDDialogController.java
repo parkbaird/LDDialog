@@ -95,13 +95,14 @@ public class LDDialogController {
                 contentStr, showBtnLeft, negativeStr, showBtnRight, positiveStr);
     }
 
-    private void dealDefaultDialog(IDialog.OnClickListener positiveBtnListener, IDialog.OnClickListener negativeBtnListener, final String titleStr, final String contentStr,
+    private void dealDefaultDialog(IDialog.OnClickListener positiveBtnListener, IDialog.OnClickListener negativeBtnListener,
+                                   final String titleStr, final String contentStr,
                                    boolean showBtnLeft, String negativeStr, boolean showBtnRight, String positiveStr) {
         if (dialogView == null) return;
         this.mNegativeButtonListener = negativeBtnListener;
         this.mPositiveButtonListener = positiveBtnListener;
-        btn_ok = (Button) dialogView.findViewById(R.id.btn_ok);
-        btn_cancel = (Button) dialogView.findViewById(R.id.btn_cancel);
+        btn_ok = dialogView.findViewById(R.id.btn_ok);
+        btn_cancel = dialogView.findViewById(R.id.btn_cancel);
 
         if (showBtnRight && showBtnLeft) {
             //左右两个按钮都存在
@@ -133,8 +134,8 @@ public class LDDialogController {
             }
         }
 
-        TextView tv_title = (TextView) dialogView.findViewById(R.id.dialog_title);
-        final TextView tv_content = (TextView) dialogView.findViewById(R.id.dialog_content);
+        TextView tv_title = dialogView.findViewById(R.id.dialog_title);
+        final TextView tv_content = dialogView.findViewById(R.id.dialog_content);
 
         if (tv_title != null) {
             tv_title.setVisibility(TextUtils.isEmpty(titleStr) ? View.GONE : View.VISIBLE);
@@ -203,7 +204,7 @@ public class LDDialogController {
         int dialogHeight;
         float dimAmount = 0.4f;
         public int gravity = Gravity.CENTER;
-        boolean isCancelableOutside = true;
+        boolean isCancelableOutside = false;
         boolean cancelable = false;
         View dialogView;
         Context context;
@@ -221,7 +222,7 @@ public class LDDialogController {
             controller.gravity = gravity;
             controller.isCancelableOutside = isCancelableOutside;
             controller.cancelable = cancelable;
-            controller.animRes = animRes;
+//            controller.animRes = animRes;
             controller.titleStr = titleStr;
             controller.contentStr = contentStr;
             controller.positiveStr = positiveStr;
