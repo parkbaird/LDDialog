@@ -455,9 +455,6 @@ public class LDDialog extends LDBaseDialog implements IDialog {
             }
             ft.commitAllowingStateLoss();
         }
-
-
     }
-
 
 }

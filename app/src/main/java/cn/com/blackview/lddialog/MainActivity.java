@@ -1,14 +1,16 @@
 package cn.com.blackview.lddialog;
 
-import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 // https://juejin.im/entry/5bac5016f265da0ae92a76ec
 public class MainActivity extends AppCompatActivity {
+
+    private String TAG = "ltnq";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

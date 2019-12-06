@@ -69,7 +69,7 @@ public class LDDialogController {
         return dimAmount;
     }
 
-    public int getGravity() {
+    int getGravity() {
         return gravity;
     }
 
@@ -81,7 +81,7 @@ public class LDDialogController {
         return cancelable;
     }
 
-    public void setDialogView(View dialogView) {
+    private void setDialogView(View dialogView) {
         this.dialogView = dialogView;
     }
 
@@ -89,7 +89,7 @@ public class LDDialogController {
         return dialogView;
     }
 
-    public void setChildView(View view) {
+    void setChildView(View view) {
         setDialogView(view);
         dealDefaultDialog(mPositiveButtonListener, mNegativeButtonListener, titleStr,
                 contentStr, showBtnLeft, negativeStr, showBtnRight, positiveStr);
@@ -197,13 +197,13 @@ public class LDDialogController {
         }
     };
 
-    public static class LDParams {
+    static class LDParams {
         FragmentManager fragmentManager;
         int layoutRes;
         int dialogWidth;
         int dialogHeight;
         float dimAmount = 0.4f;
-        public int gravity = Gravity.CENTER;
+        int gravity = Gravity.CENTER;
         boolean isCancelableOutside = false;
         boolean cancelable = false;
         View dialogView;
