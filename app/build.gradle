@@ -28,5 +28,5 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
     implementation project(path: ':lddialog')
 
-//    implementation 'com.github.parkbaird:LDDialog:Tag'
+//    implementation 'com.github.parkbaird:LDDialog:1.0.2'
 }
