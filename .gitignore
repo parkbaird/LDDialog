@@ -1,6 +1,5 @@
 *.iml
 .gradle
-/local.properties
 /.idea/caches
 /.idea/libraries
 /.idea/modules.xml
@@ -12,3 +11,15 @@
 /captures
 .externalNativeBuild
 .cxx
+.idea/codeStyles/
+.idea/gradle.xml
+.idea/misc.xml
+.idea/runConfigurations.xml
+.idea/vcs.xml
+app/libs/
+app/src/androidTest/
+app/src/main/res/drawable/
+app/src/test/
+lddialog/libs/
+lddialog/src/androidTest/
+lddialog/src/test/
