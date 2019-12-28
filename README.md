@@ -28,7 +28,7 @@ dependencies {
 ## 简单使用
 
 ```
- new LDDialog.Builder(MainActivity.this)
+        new LDDialog.Builder(MainActivity.this)
                         .setTitle("提示")
                         .setContent("您好，我们将在30分钟处理，稍后通知您订单结果！")
 //                        .setCancelableOutSide(true)
