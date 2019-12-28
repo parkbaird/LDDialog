@@ -4,7 +4,7 @@
 
 * [功能](#功能介绍)
 * [效果图](#效果图)
-* [Gradle 依赖](#Gradle依赖)
+* [Gradle依赖](#Gradle依赖)
 * [简单使用](#简单使用)
 * [详细说明](#详细说明)
 * [更新日志](#更新日志)
@@ -17,7 +17,7 @@
 
 ![SM-G9550_20191228105325](https://github.com/parkbaird/LDDialog/blob/master/image/SM-G9550_20191228105325.gif)
 
-## Gradle 依赖
+## Gradle依赖
 
 ```
 dependencies {
